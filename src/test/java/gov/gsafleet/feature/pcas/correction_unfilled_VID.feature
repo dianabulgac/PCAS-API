@@ -1,11 +1,11 @@
 Feature: Correction unfilled  Customer Order Internal VID Transaction Data from AFP
   Background:
     # Create JDBC connection with DbUtils java class
-    * def login = Java.type(ConfigurationReader.getProperty("db_login")
-    * def password = Java.type(ConfigurationReader.getProperty("db_password")
-    * def url = 'afp-masked.fleet-test.fcs.gsa.gov'
-    * def DbUtils = Java.type(‘util.DBUtils’)
-    * def db = new DBUtils(login,password,url)
+    * def login = 'dianabulgac'
+    * def password = 'Afp2022!'
+    * def dbUrl = 'afp-masked.fleet-test.fcs.gsa.gov'
+    * def DbUtils = Java.type(‘utils.DBUtils’)
+    * def db = new DBUtils(login,password,dbUrl)
     #Create an order in the database
     * def query = 'read(‘create_order_in_database.txt’)'
     * db.insertRows(query)
