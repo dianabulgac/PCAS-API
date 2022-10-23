@@ -6,7 +6,7 @@ public class SpecificRunner {
 
     @Karate.Test
     Karate testUsers() {
-        return Karate.run("call_and_resolve").relativeTo(getClass());
+        return Karate.run("call_and_resolve_transfer_data").relativeTo(getClass());
     }
 
 }
