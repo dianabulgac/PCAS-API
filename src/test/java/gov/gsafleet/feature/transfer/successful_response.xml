@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8'?><soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Header/>
+    <soapenv:Body><ns9:createResponse xmlns:ns9="http://assetacquisition.impl.webservices.ams.com" xmlns="http://doc.fa.domain.momentum.ams.com/" xmlns:ns2="http://ref.gs.domain.momentum.ams.com/" xmlns:ns3="http://dms.domain.core.ams.com/" xmlns:ns4="http://general.fo.domain.momentum.ams.com/" xmlns:ns5="http://security.sa.domain.momentum.ams.com/" xmlns:ns6="http://doc.gs.domain.momentum.ams.com/" xmlns:ns7="http://workflow.gs.domain.momentum.ams.com/" xmlns:ns8="http://correspondence.domain.core.ams.com/">
+        <ns9:MomentumAssetAcquisitionReturn><aPO xsi:nil="true"/><cExsi:nil="true"/>
+            <accountingPeriod>10/2022</accountingPeriod>
+            <accrualUpdateAcquisitionCostFlag>false</accrualUpdateAcquisitionCostFlag>
+            <acquisitionCostAmount>41337.28</acquisitionCostAmount>
+            <acquisitionDate>2022-07-13T00:00:00-04:00</acquisitionDate>
+            <acquisitionMethod>PURCHASE</acquisitionMethod>
+            <addressCity>Washington</addressCity>
+            <addressContact xsi:nil="true"/><addressCountry>US</addressCountry>
+            <addressCounty xsi:nil="true"/><addressEmail xsi:nil="true"/>
+            <addressFaxNumber xsi:nil="true"/>
+            <addressFormat>U</addressFormat>
+            <addressLine1>XXXXX</addressLine1>
+            <addressLine2 xsi:nil="true"/>
+            <addressLine3 xsi:nil="true"/>
+            <addressLine4 xsi:nil="true"/>
+            <addressLine5 xsi:nil="true"/>
+            <addressName>Non-Federal Summary Code</addressName>
+            <addressPhoneNumber xsi:nil="true"/>
+            <addressState>DC</addressState><addressTitle xsi:nil="true"/>
+            <addressZipCode>20405</addressZipCode><area xsi:nil="true"/><artifactDescription xsi:nil="true"/>
+            <MomentumAssetAcquisitionLineRelation/>
+            <assetCategory xsi:nil="true"/>
+            <assetClass xsi:nil="true"/><assetGroup xsi:nil="true"/>
+            <assetNumber>ASSETEXAMPLE</assetNumber>
+            <assetType>VEHICLE</assetType>
+            <MomentumAssetAcquisitionAttachmentLinkRelation/>
+            <batchNumber xsi:nil="true"/>
+            <building xsi:nil="true"/>
+            <buyItAmount xsi:nil="true"/>
+            <cancellationReason xsi:nil="true"/>
+            <cancellationReasonReference xsi:nil="true"/>
+            <capitalizedIndicator>true</capitalizedIndicator>
+            <catalog xsi:nil="true"/>
+            <closingCostAmount xsi:nil="true"/>
+            <custodialOrganization xsi:nil="true"/>
+            <custodianPropertyOfficer xsi:nil="true"/>
+            <custodianPropertyOfficerAcknowldgeRequiredFlag>false</custodianPropertyOfficerAcknowldgeRequiredFlag>
+            <custodianPropertyOfficerName xsi:nil="true"/>
+            <dataUniversalNumberingSystemNumber xsi:nil="true"/><declineBalanceRate xsi:nil="true"/>
+            <deductableAmount xsi:nil="true"/>
+            <depreciationMethod>SL</depreciationMethod>
+            <description>FA Example</description>
+            <documentClassification xsi:nil="true"/>
+            <documentDate>2022-07-13T00:00:00-04:00</documentDate>
+            <documentNumber>F1202207130000</documentNumber>
+            <documentType>F1</documentType>
+            <documentTypeDefinedHeader1 xsi:nil="true"/>
+            <documentTypeDefinedHeader10 xsi:nil="true"/>
+            <documentTypeDefinedHeader11 xsi:nil="true"/>
+            <documentTypeDefinedHeader12 xsi:nil="true"/>
+            <documentTypeDefinedHeader13 xsi:nil="true"/>
+            <documentTypeDefinedHeader14 xsi:nil="true"/>
+            <documentTypeDefinedHeader15 xsi:nil="true"/>
+            <documentTypeDefinedHeader16 xsi:nil="true"/>
+            <documentTypeDefinedHeader17 xsi:nil="true"/>
+            <documentTypeDefinedHeader18 xsi:nil="true"/>
+            <documentTypeDefinedHeader19 xsi:nil="true"/>
+            <documentTypeDefinedHeader2 xsi:nil="true"/>
+            <documentTypeDefinedHeader20 xsi:nil="true"/>
+            <documentTypeDefinedHeader3 xsi:nil="true"/>
+            <documentTypeDefinedHeader4 xsi:nil="true"/>
+            <documentTypeDefinedHeader5 xsi:nil="true"/>
+            <documentTypeDefinedHeader6 xsi:nil="true"/>
+            <documentTypeDefinedHeader7 xsi:nil="true"/>
+            <documentTypeDefinedHeader8 xsi:nil="true"/>
+            <documentTypeDefinedHeader9 xsi:nil="true"/>
+            <donatedBy xsi:nil="true"/>
+            <donationDate xsi:nil="true"/>
+            <dunsPlusFourNumber xsi:nil="true"/>
+            <extendedDescription xsi:nil="true"/>
+            <externalSiteId xsi:nil="true"/>
+            <externalSystemDocumentNumber xsi:nil="true"/>
+            <externalSystemId>GSAFLTGOV</externalSystemId>
+            <formCreationTemplate xsi:nil="true"/><fuelCode>FUEL</fuelCode>
+            <initialServiceDate>2022-07-13T00:00:00-04:00</initialServiceDate>
+            <leaseAmount xsi:nil="true"/>
+            <leaseEndDate xsi:nil="true"/>
+            <leaseStartDate xsi:nil="true"/>
+            <leaseType>N</leaseType>
+            <liquidatingDamagesAmount xsi:nil="true"/>
+            <location xsi:nil="true"/>
+            <manufacturer xsi:nil="true"/>
+            <messageId xsi:nil="true"/>
+            <modelNumber xsi:nil="true"/>
+            <nameOfPerson xsi:nil="true"/>
+            <onLoanTo xsi:nil="true"/>
+            <paymentAmount xsi:nil="true"/>
+            <paymentFrequency xsi:nil="true"/>
+            <paymentUpdateAcquisitionCostFlag>false</paymentUpdateAcquisitionCostFlag>
+            <platNumber xsi:nil="true"/>
+            <propertyAdministrator xsi:nil="true"/>
+            <propertyAdministratorName xsi:nil="true"/>
+            <quantity>1.000000</quantity>
+            <MomentumAssetAcquisitionDocumentApproverRelation/>
+            <MomentumAssetAcquisitionMemoRelation/>
+            <replaceDate xsi:nil="true"/>
+            <reportingAccountingPeriod>10/2022</reportingAccountingPeriod>
+            <responseEndpoint xsi:nil="true"/>
+            <responseEndpointAlias xsi:nil="true"/>
+            <returnDate xsi:nil="true"/>
+            <roomNumber xsi:nil="true"/>
+            <salvageValueAmount>4133.72</salvageValueAmount>
+            <scheduledDate xsi:nil="true"/>
+            <securityOrganization>GSA</securityOrganization>
+            <serialNumber xsi:nil="true"/>
+            <serviceContractEndDate xsi:nil="true"/>
+            <serviceContractNumber xsi:nil="true"/>
+            <suppressPrinting>false</suppressPrinting>
+            <title>FA Example</title>
+            <uniqueEntityId xsi:nil="true"/><unit xsi:nil="true"/>
+            <usefulLife>95.000000</usefulLife>
+            <userId>allroles138</userId>
+            <valuationAmount xsi:nil="true"/><valuationDate xsi:nil="true"/>
+            <vendorAddressCode>00001</vendorAddressCode>
+            <vendorCode>NF0000000</vendorCode>
+            <vendorName>Non-Federal Summary Code</vendorName>
+            <vendorSsn>000000001</vendorSsn>
+            <vendorSsnIndicator>T</vendorSsnIndicator>
+            <warrantyEndDate xsi:nil="true"/>
+            <yearOfManufacture>2022</yearOfManufacture>
+        </ns9:MomentumAssetAcquisitionReturn>
+    </ns9:createResponse>
+    </soapenv:Body>
+</soapenv:Envelope>
