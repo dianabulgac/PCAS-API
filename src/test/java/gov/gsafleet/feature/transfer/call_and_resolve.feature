@@ -4,7 +4,7 @@ Feature: Call asset Transfer Service and resolve errors between AFP and Pegasus
 
     * url baseUrl
        # soap is just an HTTP POST, so here we set the required header manually ..
-    * header Authorization = call read('basic-auth.js') { username: longin, password: password }
+    * header Authorization = call read('basic-auth.js') { username: 'fleet_user', password: 'bS9AMRKfbC' }
 
   Scenario: Call asset transfer with correct xml
 
@@ -80,8 +80,7 @@ Feature: Call asset Transfer Service and resolve errors between AFP and Pegasus
                 <ns5:externalSystemId
                         xmlns:ns5="http://doc.pe.domain.momentum.ams.com/">GSAFLTGOV
                 </ns5:externalSystemId>
-                <ns5:contractNumber
-                        xmlns:ns5="http://doc.pe.domain.momentum.ams.com/">47QMCA19AAC1&
+                <ns5:contractNumber xmlns:ns5="http://doc.pe.domain.momentum.ams.com/">47QMCA19AAC1&
                 </ns5:contractNumber>
                 <ns5:vendorCode
                         xmlns:ns5="http://doc.pe.domain.momentum.ams.com/">135266470

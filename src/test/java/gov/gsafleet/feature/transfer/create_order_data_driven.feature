@@ -2,7 +2,7 @@ Feature: Create order using DES specification
   Background:
     * url baseUrl
        # soap is just an HTTP POST, so here we set the required header manually ..
-    * header Authorization = call read('basic-auth.js') { username: longin, password: password }
+    * header Authorization = call read('basic-auth.js') { username: 'fleet_user', password: 'bS9AMRKfbC' }
 
   Scenario Outline: Call asset transfer with correct xml
 
@@ -68,4 +68,5 @@ Feature: Create order using DES specification
      And match /Envelope/Header/Body == read('successful_response.xml')
 
      Examples:
-     |read('data.csv')|
+        | accounting period | update acquisition cost | acquisition cost amount | acquisition date | acquisition method | activity | beginning budget FY | description | division | fund | line number | organization | program | transaction amount | transaction type | user dimension 2 | user dimension 3 | asset number | asset type | capital indicator | depreciation method | description | document date | document number | document type | external system id | fuel | initial service date | payment update cost flag | quantity | salvage amount | security organization | title      | useful life | vendor address code | vendor code | year of manufacturing |
+        | 10/2022           | false                   | 41337.28                | 2022-07-13       | PURCHASE           | AF410    | 2022                | FA Example  | 02       | 285F | 1           | Q00MDZ12     | TM11    | 41337.28           | 01               | A01              | G623201Y         | ASSETEXAMPLE | VEHICLE    | true              | SL                  | FA Example  | 2022-07-13    | F1202207130000  | F1            | GSAFLTGOV          | FUEL | 2022-07-13           | false                    | 1        | 4133.72        | GSA                   | FA Example | 95          | 00001               | NF0000000   | 2022                   |
