@@ -27,24 +27,29 @@ Test data is stored in csv format. Each feature file scenario will have all the 
 #### Running Tests
 From Inteliij IDE
 
--Run the specific tests feature files using the Karate.Test annotation  above the created method that will return the specific feature file passed down as an argument for Karate.run().relativeTo(getClass())
--Run the entire project using the Karate.Test annotation  above the created method testAll()that will return Karate.run().relativeTo(getClass())that is located in AllFeatureRunner class;
+- Run the specific tests feature files using the Karate.Test annotation  above the created method that will return the specific feature file passed down as an argument for Karate.run().relativeTo(getClass())
+- Run the entire project using the Karate.Test annotation  above the created method testAll()that will return Karate.run().relativeTo(getClass())that is located in AllFeatureRunner class;
 
 - Add Environment Variables
   Using karate-config.js file under var config function;
 
-
+- Run using maven command line like below, remember to always add the exclusion tags: @wip, @defect, @ignore and @closed 
+ * mvn -Dcucumber.filter.tags="not @wip and not @defect and not @closed and <desired tag>" clean test`
+ to change the env to a specific one use this command "qa" for test/ "dev" for development
+ * mvn test -Dkarate.env="qa"
+ * mvn test -Dkarate.env="qa"
+ * mvn test
 ##### IDE Setup
-- Get Gerkin plugin
+- Get Gherkin plugin
 
 ##### Common Setup
-- Pull the latest Karte code from the develop branch (app-selenium)
+- Pull the latest Karate code from the develop branch (app-selenium)
 - Identify the feature file you want to run, and call it in the SpecificRunner from the same package
 
 ##### Run tests against Dev environment
-- Open src/test/java/karate-config.js file in Karate project and set the “baseUrl” to  “https://dev-esb.ocfo.gsa.gov/deva/gsa-fm-fleet-wps”
+- Open src/test/java/gov/gsafleet/AllFeatureRunner.java file in Karate project and set the karate.env value to "dev"
 
 ##### Run tests against test environment
-- Open src/test/java/karate-config.js file in Karate project and set the “baseUrl” to  “https://test-esb.ocfo.gsa.gov/testa/gsa-fm-fleet-wps”
+- Open src/test/java/gov/gsafleet/AllFeatureRunner.java file in Karate project and set the karate.env value to "qa"
   
 

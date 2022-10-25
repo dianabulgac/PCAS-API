@@ -1,9 +1,7 @@
 function fn() {
     var env = karate.env;// get system property 'karate.env'
     karate.log('karate.env system property was:', env);
-    if (!env) {
-        env = 'dev';
-    }
+
 
     var config = {
         env: env,
@@ -15,3 +13,15 @@ function fn() {
 
     }
 
+    if(env == 'qa'){
+    config.baseUrl = 'https://test-esb.ocfo.gsa.gov/testa/gsa-fm-fleet-wps'
+    }
+    else if(env == 'dev'){
+        config.baseUrl = 'https://dev-esb.ocfo.gsa.gov/deva/gsa-fm-fleet-wps'
+    }
+    else {
+    config.baseUrl = 'https://dev-esb.ocfo.gsa.gov/deva/gsa-fm-fleet-wps'
+    }
+
+    return config;
+    }
