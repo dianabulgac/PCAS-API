@@ -67,4 +67,22 @@ Background:
      * def listErro = Java.type('gov.gsafleet.feature.transfer.ErrorExtraction')
      * def encoded = listErro.errorExtraction(response)
      * print encoded
+     * def strQest = listErro.fixException(encoded)
+      * print strQest
+      * request = strQest
+     Given request
 
+     * header Authorization = call read('basic-auth.js')
+     * configure connectTimeout = 30000
+    # .. and then we use the 'soap action'
+
+     And header Content-Type = 'application/soap+xml; charset=utf-8'
+    # .. and then we use the 'method keyword' instead of 'soap action'
+     And path  "/FTFixedAsset"
+     When method post
+     Then status 200
+     * print response
+     * string response = response
+     * def listErro = Java.type('gov.gsafleet.feature.transfer.ErrorExtraction')
+     * def encoded = listErro.errorExtraction(response)
+     * print encoded
