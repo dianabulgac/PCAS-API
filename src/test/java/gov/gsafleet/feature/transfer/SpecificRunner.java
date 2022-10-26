@@ -17,6 +17,11 @@ public class SpecificRunner {
         return Karate.run("create_order_data_driven").relativeTo(getClass());
     }
 
+    @Karate.Test
+    Karate testCreateCreateAssetTransfer() {
+        return Karate.run("des_example_create_asset_transfer").relativeTo(getClass());
+    }
+
 
 }
 
