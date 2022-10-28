@@ -39,9 +39,9 @@ public class DB_util {
      */
     public static void createConnection(){
 
-        String url      = "jdbc:oracle:thin:@3.93.242.50:1521:XE"; ;
-        String username = "hr" ;
-        String password = "hr" ;
+        String url      = "jdbc:mysql://afp-dev.fleet-dev.fcs.gsa.gov:3306/bm_pegasys";
+        String username = "dianabulgac" ;
+        String password = "=Afp2022!" ;
 
         createConnection(url, username, password);
 
@@ -54,7 +54,7 @@ public class DB_util {
      * @return ResultSet object  that contains data
      */
     public static ResultSet runQuery(String sql){
-
+createConnection();
         try {
             stm = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             rs = stm.executeQuery(sql); // setting the value of ResultSet object
@@ -62,7 +62,7 @@ public class DB_util {
         }catch(Exception e){
             System.out.println("ERROR OCCURRED WHILE RUNNING QUERY "+ e.getMessage() );
         }
-
+destroy();
         return rs ;
 
     }
@@ -102,8 +102,8 @@ public class DB_util {
      * find out the row count
      * @return row count of this ResultSet
      */
-    public static int getRowCount(){
-
+    public static int getRowCount(String sql){
+ runQuery(sql);
         int rowCount = 0 ;
         try {
             rs.last() ;
@@ -144,8 +144,8 @@ public class DB_util {
      * // Get all the Column names into a list object
      * @return  List<String>
      */
-    public static List<String> getAllColumnNamesAsList(){
-
+    public static List<String> getAllColumnNamesAsList(String sql){
+  runQuery(sql);
         List<String> columnNameLst = new ArrayList<>();
 
         try {
@@ -375,10 +375,10 @@ public class DB_util {
      * Now Store All rows as List of Map object
      * @return List of Map object that contain each row data as Map<String,String>
      */
-    public static List<Map<String,String>> getAllRowAsListOfMap(){
-
+    public static List<Map<String,String>> getAllRowAsListOfMap(String sql){
+ runQuery(sql);
         List<Map<String,String>> allRowLstOfMap = new ArrayList<>();
-        int rowCount = getRowCount() ;
+        int rowCount = getRowCount(sql) ;
 
         // move from first row till last row
         // get each row as map object and add it to the list
