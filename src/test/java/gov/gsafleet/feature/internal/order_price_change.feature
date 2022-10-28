@@ -118,7 +118,7 @@ Feature: Price change order
 </soap:Envelope>
 """
     # .. and then we use the 'soap action'
-    When soap action 'http://InternalAgreement'
+    When soap action "http://InternalAgreement"
     Then status 200
     # note how we focus only on the relevant part of the payload and read expected XML from a file
     And match /Envelope/Header/Body/createResponse/MomentumInternalDirectAgreementReturn/maximumAgreementTransactionAmount== 1000

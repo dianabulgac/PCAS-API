@@ -1,4 +1,4 @@
-Feature: Create asset transfer request based on des documentation
+Feature: Create asset transfer request based on des documentation and collect and fix errors
 Background:
  * url baseUrl
        # soap is just an HTTP POST, so here we set the required header manually ..
@@ -68,9 +68,11 @@ Background:
      * def encoded = listErro.errorExtraction(response)
      * print encoded
      * def strQest = listErro.fixException(encoded)
-      * print strQest
-      * request = strQest
-     Given request
+     * print strQest
+
+
+     Given request read('modified.xml')
+
 
      * header Authorization = call read('basic-auth.js')
      * configure connectTimeout = 30000
