@@ -1,4 +1,5 @@
-package gov.gsafleet.utils;
+package gov.gsafleet.feature.acquisitions;
+import gov.gsafleet.utils.ConfigurationReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;

@@ -72,11 +72,11 @@ Feature: Create asset transfer request based on des documentation and collect an
     Then status 200
     * print response
     * string response = response
-    * def accessErrorClas = Java.type('gov.gsafleet.feature.acquisitions.ErrorExtraction')
-    * def encoded = accessErrorClass.errorExtraction(response)
-    * print encoded
-    * def strQest = listErro.fixException(encoded)
-    * print strQest
+    * def accessErrorClass = Java.type('gov.gsafleet.feature.acquisitions.ErrorExtraction')
+    * def errors = accessErrorClass.errorExtraction(response)
+    * print errors
+    * def stringRequest = listErro.fixException(errors)
+    * print stringRequest
 
 
     Given request read('modified.xml')
@@ -94,5 +94,5 @@ Feature: Create asset transfer request based on des documentation and collect an
     * print response
     * string response = response
    # * def listErro = Java.type('gov.gsafleet.feature.acquisitions.ErrorExtraction')
-    * def encoded = listErro.errorExtraction(response)
-    * print encoded
+    * def errors = listError.errorExtraction(response)
+    * print errors
