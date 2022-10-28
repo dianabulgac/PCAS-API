@@ -1,4 +1,5 @@
-package gov.gsafleet.utils;
+package gov.gsafleet.feature.acquisitions;
+import gov.gsafleet.utils.ConfigurationReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,11 +12,11 @@ public class DbUtils {
 
     private final JdbcTemplate jdbc;
 
-    public DbUtils(Map<String, Object> config) {
-        String url = (String) config.get("url");
-        String username = (String) config.get("username");
-        String password = (String) config.get("password");
-        String driver = (String) config.get("driverClassName");
+    public DbUtils() {
+        String url = ConfigurationReader.getProperty("db_url");
+        String username = ConfigurationReader.getProperty("db_username");
+        String password = ConfigurationReader.getProperty("db_password");;
+        String driver = "com.mysql.jdbc.Driver";
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(driver);
         dataSource.setUrl(url);
