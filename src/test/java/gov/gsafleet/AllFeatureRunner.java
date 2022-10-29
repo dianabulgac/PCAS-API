@@ -3,6 +3,7 @@ package gov.gsafleet;
 import com.intuit.karate.junit5.Karate;
 import org.junit.BeforeClass;
 
+
 class AllFeatureRunner {
 
     @BeforeClass
@@ -16,5 +17,11 @@ class AllFeatureRunner {
     Karate testAll() {
         return new Karate().relativeTo(getClass());
     }
-    
+
+    @Karate.Test
+    Karate testTags() {
+        return Karate.run().tags("@create").relativeTo(getClass());
+    }
+
+
 }

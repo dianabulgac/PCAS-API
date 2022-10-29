@@ -1,4 +1,5 @@
-package gov.gsafleet.utils;
+package gov.gsafleet.feature;
+
 
 import com.intuit.karate.Results;
 import com.intuit.karate.Runner;
@@ -9,20 +10,22 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.util.*;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+
 
 public class ParallelTesting {
 
 
     @Test
     public void testParallel() {
-        Results results = Runner.path("classpath:demo")
+        Results results = Runner.path("classpath:feature")
                 .outputCucumberJson(true)
-                .karateEnv("demo")
+                .karateEnv("dev")
                 .parallel(5);
         generateReport(results.getReportDir());
-        assertTrue(results.getErrorMessages(), results.getFailCount() == 0);
+        assertEquals(0,results.getFailCount());
     }
+
 
     public static void generateReport(String karateOutputPath) {
         Collection<File> jsonFiles = FileUtils.listFiles(new File(karateOutputPath), new String[] {"json"}, true);

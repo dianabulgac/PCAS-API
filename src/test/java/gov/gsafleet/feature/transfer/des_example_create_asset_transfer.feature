@@ -3,7 +3,7 @@ Background:
  * url baseUrl
        # soap is just an HTTP POST, so here we set the required header manually ..
 * header Authorization = call read('basic-auth.js')
-
+@create
   Scenario: Call asset transfer with correct xml
 
     Given request

@@ -4,7 +4,7 @@ Feature: Data testing transfer request
 
     * url baseUrl
        # soap is just an HTTP POST, so here we set the required header manually ..
-    * header Authorization = call read('basic-auth.js') { username: longin, password: password }
+    * header Authorization = call read('../basic-auth.js') { username: longin, password: password }
 
   Scenario Outline: Call asset transfer with correct xml
 

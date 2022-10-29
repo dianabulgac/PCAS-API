@@ -16,7 +16,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="AFP-PCAS-test-auto" options="-Werror" />
       <module name="PCAS-API" options="-Werror" />
-      <module name="pcas-api" options="-Werror" />
+      <module name="pcas-api" options="" />
     </option>
   </component>
 </project>
