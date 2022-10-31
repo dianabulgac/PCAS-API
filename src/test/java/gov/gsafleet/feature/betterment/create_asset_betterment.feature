@@ -4,7 +4,7 @@ Feature: Create asset transfer request based on des documentation and collect an
        # soap is just an HTTP POST, so here we set the required header manually ..
     * header Authorization = call read('../../utils/basic-auth.js')
 @create
-  Scenario: Call asset transfer with correct xml
+  Scenario: Call asset betterment with create schema xml DES
 
     Given request
   """

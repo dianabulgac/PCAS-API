@@ -6,7 +6,7 @@ Feature: Price change order
        # soap is just an HTTP POST, so here we set the required header manually ..
     * header Authorization = call read('basic-auth.js') { username: 'fleet_user', password: 'bS9AMRKfbC' }
 
-  Scenario: Call asset transfer with correct xml
+  Scenario: Create internal direct agreement  with correct xml
 
     Given request
 """
@@ -117,9 +117,12 @@ Feature: Price change order
 	</soap:Body>
 </soap:Envelope>
 """
-    # .. and then we use the 'soap action'
-    When soap action "http://InternalAgreement"
-    Then status 200
+
+	  And header Content-Type = 'application/soap+xml; charset=utf-8'
+    # .. and then we use the 'method keyword' instead of 'soap action'
+	  And path  "/IDDocumentService"
+	  When method post
+	  Then status 200
     # note how we focus only on the relevant part of the payload and read expected XML from a file
   ##  And match /Envelope/Header/Body/createResponse/MomentumInternalDirectAgreementReturn/maximumAgreementTransactionAmount== 1000
 

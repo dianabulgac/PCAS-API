@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.util.*;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class ParallelTesting {
@@ -18,10 +18,12 @@ public class ParallelTesting {
 
     @Test
     public void testParallel() {
-        Results results = Runner.path("classpath:feature")
-                .outputCucumberJson(true)
-                .karateEnv("dev")
-                .parallel(5);
+        Results results = Runner
+             //   .path("classpath:gov.gs afleet.feature.acquisitions.create_asset_acquisition_fix_errors")
+
+              //  .outputCucumberJson(true)
+             //   .karateEnv("dev")
+                .parallel(getClass(),5);
         generateReport(results.getReportDir());
         assertEquals(0,results.getFailCount());
     }
@@ -31,7 +33,7 @@ public class ParallelTesting {
         Collection<File> jsonFiles = FileUtils.listFiles(new File(karateOutputPath), new String[] {"json"}, true);
         List<String> jsonPaths = new ArrayList<>(jsonFiles.size());
         jsonFiles.forEach(file -> jsonPaths.add(file.getAbsolutePath()));
-        Configuration config = new Configuration(new File("target"), "demo");
+        Configuration config = new Configuration(new File("target"), "pcas-api");
         ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config);
         reportBuilder.generateReports();
     }

@@ -1,11 +1,11 @@
 package gov.gsafleet.feature.pcas;
 
 import com.intuit.karate.junit5.Karate;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
 
 public class
 SpecificRunner {
-    @BeforeClass
+    @BeforeAll
     public static void before(){
         System.setProperty("karate.env","qa");
     }

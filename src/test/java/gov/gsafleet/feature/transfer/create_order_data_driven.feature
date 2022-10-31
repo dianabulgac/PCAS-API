@@ -2,7 +2,7 @@ Feature: Create order using DES specification
   Background:
     * url baseUrl
        # soap is just an HTTP POST, so here we set the required header manually ..
-    * header Authorization = call read('basic-auth.js') { username: 'fleet_user', password: 'bS9AMRKfbC' }
+    * header Authorization = call read('basic-auth.js')
 
   Scenario Outline: Call asset transfer with correct xml
 
@@ -61,11 +61,17 @@ Feature: Create order using DES specification
 
   """
       # .. and then we use the 'soap action'
-     When soap action 'http://FAFixedAsset'
+     * configure connectTimeout = 30000
+    # .. and then we use the 'soap action'
+
+     And header Content-Type = 'application/soap+xml; charset=utf-8'
+    # .. and then we use the 'method keyword' instead of 'soap action'
+     And path  "/FAFixedAsset"
+     When method post
      Then status 200
     # note how we focus only on the relevant part of the payload and read expected XML from a file
      And print response
-     And match /Envelope/Header/Body == read('successful_response.xml')
+     # And match /Envelope/Header/Body == read('successful_response.xml')
 
      Examples:
         | accounting period | update acquisition cost | acquisition cost amount | acquisition date | acquisition method | activity | beginning budget FY | description | division | fund | line number | organization | program | transaction amount | transaction type | user dimension 2 | user dimension 3 | asset number | asset type | capital indicator | depreciation method | description | document date | document number | document type | external system id | fuel | initial service date | payment update cost flag | quantity | salvage amount | security organization | title      | useful life | vendor address code | vendor code | year of manufacturing |

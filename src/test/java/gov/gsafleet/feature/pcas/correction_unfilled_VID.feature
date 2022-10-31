@@ -3,9 +3,9 @@ Feature: Correction unfilled  Customer Order Internal VID Transaction Data from 
     # Create JDBC connection with DbUtils java class
     * def login = 'dianabulgac'
     * def password = 'Afp2022!'
-    * def dbUrl = 'afp-masked.fleet-test.fcs.gsa.gov'
-    * def DbUtils = Java.type(‘utils.DBUtils’)
-    * def db = new DBUtils(login,password,dbUrl)
+    * def dbUrl = 'jdbc:mysql://afp-dev.fleet-dev.fcs.gsa.gov:3306/bm_pegasys'
+    * def DbUtils = Java.type("gov.gsafleet.feature.acquisitions.DbUtils")
+    * def db = new DbUtils(login,password,dbUrl)
     #Create an order in the database
     * def query = 'read(‘create_order_in_database.txt’)'
     * db.insertRows(query)

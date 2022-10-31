@@ -4,7 +4,7 @@ Feature: Data testing transfer request
 
     * url baseUrl
        # soap is just an HTTP POST, so here we set the required header manually ..
-    * header Authorization = call read('../basic-auth.js') { username: longin, password: password }
+    * header Authorization = call read('basic-auth.js')
 
   Scenario Outline: Call asset transfer with correct xml
 
@@ -132,12 +132,17 @@ Feature: Data testing transfer request
     </soap:Body>
 </soap:Envelope>
   """
+    * configure connectTimeout = 30000
     # .. and then we use the 'soap action'
-    When soap action 'http://FTFixedAsset'
+
+    And header Content-Type = 'application/soap+xml; charset=utf-8'
+    # .. and then we use the 'method keyword' instead of 'soap action'
+    And path  "/FTFixedAsset"
+    When method post
     Then status 200
     # note how we focus only on the relevant part of the payload and read expected XML from a file
     And print response
-    And match /Envelope/Header/Body == read('expected.xml')
+    # And match /Envelope/Header/Body == read('expected.xml')
 
     Examples:
       | accounting period | order type | external system document number | document date | document type | document number | title             | contract number | vendor code | vendor address code | eligibility to transport to AAP | catalog number | commodity code | commodity name                   | unit of measure | quantity | export indicator | funding options | priced unit priced amount transaction | contract number | contract item line | description  | line number | transaction type | prompt pay type   | related cost indicator | precredit line transaction amount | beginning budget FY | fund   | division | organization | program | activity | budget object |

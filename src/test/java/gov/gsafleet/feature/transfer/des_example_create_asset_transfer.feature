@@ -64,11 +64,11 @@ Background:
      Then status 200
      * print response
      * string response = response
-     * def listErro = Java.type('gov.gsafleet.feature.transfer.ErrorExtraction')
-     * def encoded = listErro.errorExtraction(response)
-     * print encoded
-     * def strQest = listErro.fixException(encoded)
-     * print strQest
+     * def listError = Java.type('gov.gsafleet.feature.transfer.ErrorExtraction')
+     * def errors = listError.errorExtraction(response)
+     * print errors
+     * def strRequest = listError.fixException(errors)
+     * print strRequest
 
 
      Given request read('modified.xml')
@@ -85,6 +85,6 @@ Background:
      Then status 200
      * print response
      * string response = response
-     * def listErro = Java.type('gov.gsafleet.feature.transfer.ErrorExtraction')
-     * def encoded = listErro.errorExtraction(response)
-     * print encoded
+   #  * def listError = Java.type('gov.gsafleet.feature.transfer.ErrorExtraction')
+     * def errors = listError.errorExtraction(response)
+     * print errors

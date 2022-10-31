@@ -1,3 +1,7 @@
+
+
+
+@ignore
 Feature: cron jobs triggering
 
   Background:

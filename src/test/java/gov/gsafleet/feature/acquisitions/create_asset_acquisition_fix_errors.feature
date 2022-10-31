@@ -1,10 +1,19 @@
-Feature: Create asset transfer request based on des documentation and collect and fix errors
+Feature: Create asset acquisition request based on des documentation and collect and fix errors
   Background:
     * url baseUrl
        # soap is just an HTTP POST, so here we set the required header manually ..
     * header Authorization = call read('basic-auth.js')
+
+    * configure afterScenario =
+    """
+    function(){
+    var info = karate.info;
+    karate.log(info);
+    if(info.errorMessage){
+    karate.call('Rerun.feature')}}
+    """
 @create
-  Scenario: Call asset transfer with correct xml
+  Scenario: Call asset acquisition with correct xml
 
     Given request
   """
@@ -13,15 +22,15 @@ Feature: Create asset transfer request based on des documentation and collect an
    <soap:Body>
       <fa:create>
          <fa:MomentumAssetAcquisition>
-            <doc:accountingPeriod>10/2022</doc:accountingPeriod>
+            <doc:accountingPeriod>01/2023</doc:accountingPeriod>
             <doc:accrualUpdateAcquisitionCostFlag>false</doc:accrualUpdateAcquisitionCostFlag>
             <doc:acquisitionCostAmount>41337.28</doc:acquisitionCostAmount>
-            <doc:acquisitionDate>2022-07-13</doc:acquisitionDate>
+            <doc:acquisitionDate>2022-10-31</doc:acquisitionDate>
             <doc:acquisitionMethod>PURCHASE</doc:acquisitionMethod>
             <doc:MomentumAssetAcquisitionLineRelation>
                <doc:MomentumAssetAcquisitionLine>
                   <doc:activity>AF410</doc:activity>
-                  <doc:beginningBudgetFiscalYear>2022</doc:beginningBudgetFiscalYear>
+                  <doc:beginningBudgetFiscalYear>2023</doc:beginningBudgetFiscalYear>
                   <doc:description>FA Example</doc:description>
                   <doc:division>02</doc:division>
                   <doc:fund>285F</doc:fund>
@@ -31,20 +40,20 @@ Feature: Create asset transfer request based on des documentation and collect an
                   <doc:transactionAmount>41337.28</doc:transactionAmount>
                   <doc:transactionType>01</doc:transactionType>
                   <doc:userDimension2>A01</doc:userDimension2>
-                  <doc:userDimension3>G623201Y</doc:userDimension3>
+                  <doc:userDimension3></doc:userDimension3>
                </doc:MomentumAssetAcquisitionLine>
             </doc:MomentumAssetAcquisitionLineRelation>
-            <doc:assetNumber>ASSETEXAMPLE</doc:assetNumber>
+            <doc:assetNumber>1FVHG3DX3DHFE3747</doc:assetNumber>
             <doc:assetType>VEHICLE</doc:assetType>
             <doc:capitalizedIndicator>true</doc:capitalizedIndicator>
             <doc:depreciationMethod>SL</doc:depreciationMethod>
             <doc:description>FA Example</doc:description>
-            <doc:documentDate>2022-07-13</doc:documentDate>
+            <doc:documentDate>2022-10-31</doc:documentDate>
             <doc:documentNumber>F1202207140000</doc:documentNumber>
             <doc:documentType>F1</doc:documentType>
             <doc:externalSystemId>GSAFLTGOV</doc:externalSystemId>
             <doc:fuelCode>FUEL</doc:fuelCode>
-            <doc:initialServiceDate>2022-07-13</doc:initialServiceDate>
+            <doc:initialServiceDate>2022-10-31</doc:initialServiceDate>
             <doc:paymentUpdateAcquisitionCostFlag>false</doc:paymentUpdateAcquisitionCostFlag>
             <doc:quantity>1</doc:quantity>
             <doc:salvageValueAmount>4133.72</doc:salvageValueAmount>
@@ -75,7 +84,7 @@ Feature: Create asset transfer request based on des documentation and collect an
     * def accessErrorClass = Java.type('gov.gsafleet.feature.acquisitions.ErrorExtraction')
     * def errors = accessErrorClass.errorExtraction(response)
     * print errors
-    * def stringRequest = listErro.fixException(errors)
+    * def stringRequest = accessErrorClass.fixException(errors)
     * print stringRequest
 
 
@@ -94,5 +103,5 @@ Feature: Create asset transfer request based on des documentation and collect an
     * print response
     * string response = response
    # * def listErro = Java.type('gov.gsafleet.feature.acquisitions.ErrorExtraction')
-    * def errors = listError.errorExtraction(response)
+    * def errors = accessErrorClass.errorExtraction(response)
     * print errors

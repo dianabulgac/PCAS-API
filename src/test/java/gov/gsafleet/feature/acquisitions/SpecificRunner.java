@@ -14,6 +14,9 @@ public class SpecificRunner {
         return Karate.run("DataBaseConnectionAndValidation").relativeTo(getClass());
     }
 
+    @Karate.Test
+    Karate testAssetsAcquisitionDataDriven ()    {return Karate.run("create_asset_aquisition_data_driven").relativeTo(getClass());
+    }
 
 
 }

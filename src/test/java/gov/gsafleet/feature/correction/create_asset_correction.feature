@@ -2,9 +2,9 @@ Feature: Create asset transfer request based on des documentation and collect an
   Background:
     * url baseUrl
        # soap is just an HTTP POST, so here we set the required header manually ..
-    * header Authorization = call read('../../utils/basic-auth.js')
+    * header Authorization = call read('basic-auth.js')
 @create
-  Scenario: Call asset transfer with correct xml
+  Scenario: Call asset correction with correct xml
 
     Given request
   """
@@ -15,7 +15,7 @@ Feature: Create asset transfer request based on des documentation and collect an
          <fa:MomentumAssetCorrection>
             <doc:accountingPeriod>10/2022</doc:accountingPeriod>
             <doc:accrualUpdateAcquisitionCostFlag>false</doc:accrualUpdateAcquisitionCostFlag>
-            <doc:acquisitionCostAmount>41337.28</doc:acquisitionCostAmount>
+            <doc:acquisitionCostAmount>42337.28</doc:acquisitionCostAmount>
             <doc:acquisitionDate>2022-07-14</doc:acquisitionDate>
             <doc:acquisitionMethod>PURCHASE</doc:acquisitionMethod>
             <doc:MomentumAssetCorrectionLineRelation>
