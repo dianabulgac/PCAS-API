@@ -29,16 +29,13 @@ From Inteliij IDE
 
 - Run the specific tests feature files using the Karate.Test annotation  above the created method that will return the specific feature file passed down as an argument for Karate.run().relativeTo(getClass())
 - Run the entire project using the Karate.Test annotation  above the created method testAll()that will return Karate.run().relativeTo(getClass())that is located in AllFeatureRunner class;
+- Run using maven command line like below, remember to always add the exclusion tags: @wip, @defect and @closed
+* mvn -Dcucumber.filter.tags="not @wip and not @defect and not @closed and <desired tag>" clean test
+  to change the env to a specific one use this command "qa" for test/ "dev" for development
+* mvn test -Dtest=AllFeatureRunner
+* mvn test "-Dkarate.options=--tags ~@skipme classpath:/../.feature" -Dtest=DemoTestParallel
+* mvn test "-Dkarate.options=PathToFeatureFiles/order.feature:12" -Dtest=DemoTestParallel
 
-- Add Environment Variables
-  Using karate-config.js file under var config function;
-
-- Run using maven command line like below, remember to always add the exclusion tags: @wip, @defect, @ignore and @closed 
- * mvn -Dcucumber.filter.tags="not @wip and not @defect and not @closed and <desired tag>" clean test`
- to change the env to a specific one use this command "qa" for test/ "dev" for development
- * mvn test -Dkarate.env="qa"
- * mvn test -Dkarate.env="qa"
- * mvn test
 ##### IDE Setup
 - Get Gherkin plugin
 

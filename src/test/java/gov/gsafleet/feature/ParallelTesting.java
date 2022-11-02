@@ -6,6 +6,7 @@ import com.intuit.karate.Runner;
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
 import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.util.*;
@@ -14,16 +15,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class ParallelTesting {
+    @BeforeAll
+    public static void before(){
+        System.setProperty("karate.env","dev");
+    }
 
 
     @Test
     public void testParallel() {
         Results results = Runner
-             //   .path("classpath:gov.gs afleet.feature.acquisitions.create_asset_acquisition_fix_errors")
+                .path("classpath:gov/gsafleet/feature/acquisitions").tags("@create")
 
-              //  .outputCucumberJson(true)
-             //   .karateEnv("dev")
-                .parallel(getClass(),5);
+                .outputCucumberJson(true)
+                .karateEnv("dev")
+                .parallel(5);
         generateReport(results.getReportDir());
         assertEquals(0,results.getFailCount());
     }

@@ -30,7 +30,7 @@ public class ErrorExtraction {
         return errors;
     }
 
-    public static String fixException(Map<String, String> errors) throws IOException {
+    public static String fixException(Map<String, ErrorDescriptions> errors) throws IOException {
 
         String schemaXML = " <soap:Envelope xmlns:soap=\"http://www.w3.org/2003/05/soap-envelope\" xmlns:fa=\"http://assetacquisition.impl.webservices.ams.com\" xmlns:doc=\"http://doc.fa.domain.momentum.ams.com/\" xmlns:ref=\"http://ref.gs.domain.momentum.ams.com/\" xmlns:wor=\"http://workflow.gs.domain.momentum.ams.com/\" xmlns:gen=\"http://general.fo.domain.momentum.ams.com/\" xmlns:doc1=\"http://doc.gs.domain.momentum.ams.com/\">" +
                 "   <soap:Header/>" +
@@ -103,6 +103,9 @@ public class ErrorExtraction {
             writer.close();
 
         return schemaXML;
+    }
+    public static int errorSize(Map errors){
+        return errors.size();
     }
 
 }

@@ -1,3 +1,5 @@
+
+
 Feature: Create asset acquisition request based on des documentation and collect and fix errors
   Background:
     * url baseUrl
@@ -12,7 +14,6 @@ Feature: Create asset acquisition request based on des documentation and collect
     if(info.errorMessage){
     karate.call('Rerun.feature')}}
     """
-@create
   Scenario: Call asset acquisition with correct xml
 
     Given request
@@ -22,10 +23,10 @@ Feature: Create asset acquisition request based on des documentation and collect
    <soap:Body>
       <fa:create>
          <fa:MomentumAssetAcquisition>
-            <doc:accountingPeriod>01/2023</doc:accountingPeriod>
+            <doc:accountingPeriod>02/23</doc:accountingPeriod>
             <doc:accrualUpdateAcquisitionCostFlag>false</doc:accrualUpdateAcquisitionCostFlag>
             <doc:acquisitionCostAmount>41337.28</doc:acquisitionCostAmount>
-            <doc:acquisitionDate>2022-10-31</doc:acquisitionDate>
+            <doc:acquisitionDate>2022-11-02</doc:acquisitionDate>
             <doc:acquisitionMethod>PURCHASE</doc:acquisitionMethod>
             <doc:MomentumAssetAcquisitionLineRelation>
                <doc:MomentumAssetAcquisitionLine>
@@ -43,17 +44,17 @@ Feature: Create asset acquisition request based on des documentation and collect
                   <doc:userDimension3></doc:userDimension3>
                </doc:MomentumAssetAcquisitionLine>
             </doc:MomentumAssetAcquisitionLineRelation>
-            <doc:assetNumber>1FVHG3DX3DHFE3747</doc:assetNumber>
+            <doc:assetNumber>1FVHG3DX3D78PO747</doc:assetNumber>
             <doc:assetType>VEHICLE</doc:assetType>
             <doc:capitalizedIndicator>true</doc:capitalizedIndicator>
             <doc:depreciationMethod>SL</doc:depreciationMethod>
             <doc:description>FA Example</doc:description>
-            <doc:documentDate>2022-10-31</doc:documentDate>
-            <doc:documentNumber>F1202207140000</doc:documentNumber>
+            <doc:documentDate>2022-11-02</doc:documentDate>
+            <doc:documentNumber>F1202211024118</doc:documentNumber>
             <doc:documentType>F1</doc:documentType>
             <doc:externalSystemId>GSAFLTGOV</doc:externalSystemId>
             <doc:fuelCode>FUEL</doc:fuelCode>
-            <doc:initialServiceDate>2022-10-31</doc:initialServiceDate>
+            <doc:initialServiceDate>2022-11-02</doc:initialServiceDate>
             <doc:paymentUpdateAcquisitionCostFlag>false</doc:paymentUpdateAcquisitionCostFlag>
             <doc:quantity>1</doc:quantity>
             <doc:salvageValueAmount>4133.72</doc:salvageValueAmount>
@@ -72,7 +73,7 @@ Feature: Create asset acquisition request based on des documentation and collect
 
   """
     * configure connectTimeout = 30000
-    # .. and then we use the 'soap action'
+
 
     And header Content-Type = 'application/soap+xml; charset=utf-8'
     # .. and then we use the 'method keyword' instead of 'soap action'
@@ -84,24 +85,25 @@ Feature: Create asset acquisition request based on des documentation and collect
     * def accessErrorClass = Java.type('gov.gsafleet.feature.acquisitions.ErrorExtraction')
     * def errors = accessErrorClass.errorExtraction(response)
     * print errors
+    * def size = accessErrorClass.errorSize(errors)
+   And match size == 0
     * def stringRequest = accessErrorClass.fixException(errors)
-    * print stringRequest
 
 
     Given request read('modified.xml')
 
 
-    * header Authorization = call read('basic-auth.js')
-    * configure connectTimeout = 30000
+    #* header Authorization = call read('basic-auth.js')
+   # * configure connectTimeout = 30000
     # .. and then we use the 'soap action'
 
-    And header Content-Type = 'application/soap+xml; charset=utf-8'
+   # And header Content-Type = 'application/soap+xml; charset=utf-8'
     # .. and then we use the 'method keyword' instead of 'soap action'
-    And path  "/FAFixedAsset"
-    When method post
-    Then status 200
-    * print response
-    * string response = response
+    #And path  "/FAFixedAsset"
+   # When method post
+   # Then status 200
+   # * print response
+   # * string response = response
    # * def listErro = Java.type('gov.gsafleet.feature.acquisitions.ErrorExtraction')
-    * def errors = accessErrorClass.errorExtraction(response)
-    * print errors
+   # * def errors = accessErrorClass.errorExtraction(response)
+  #  * print errors
