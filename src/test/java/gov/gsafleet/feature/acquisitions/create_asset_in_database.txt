@@ -1,0 +1,2 @@
+insert into bm_pegasys.pegasys_fixed_assets (pegasys_fixed_assets_id, serial_number_vin, acquisition_method, betterment_number, asset_type, new_asset_type, asset_residual_value, asset_life_months, fmc_sub_section_code, asset_action_type, created_by, created_at, updated_by, updated_at, deleted_at, dml_flag, data_source)values
+('22854', '2G1WD5E31G1101728','PURCHASE', '0', 'VEHICLE', null, '2121.8', '96', '07-01 ','FACreate', now(),now(),  'testservice', now(),  NULL, NULL,  NULL);

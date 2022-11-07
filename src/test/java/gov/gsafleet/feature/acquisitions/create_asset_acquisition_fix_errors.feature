@@ -26,35 +26,35 @@ Feature: Create asset acquisition request based on des documentation and collect
             <doc:accountingPeriod>02/23</doc:accountingPeriod>
             <doc:accrualUpdateAcquisitionCostFlag>false</doc:accrualUpdateAcquisitionCostFlag>
             <doc:acquisitionCostAmount>41337.28</doc:acquisitionCostAmount>
-            <doc:acquisitionDate>2022-11-02</doc:acquisitionDate>
+            <doc:acquisitionDate>2022-11-03</doc:acquisitionDate>
             <doc:acquisitionMethod>PURCHASE</doc:acquisitionMethod>
             <doc:MomentumAssetAcquisitionLineRelation>
                <doc:MomentumAssetAcquisitionLine>
                   <doc:activity>AF410</doc:activity>
                   <doc:beginningBudgetFiscalYear>2023</doc:beginningBudgetFiscalYear>
                   <doc:description>FA Example</doc:description>
-                  <doc:division>02</doc:division>
+                  <doc:division>07</doc:division>
                   <doc:fund>285F</doc:fund>
                   <doc:lineNumber>1</doc:lineNumber>
-                  <doc:organization>Q00MDZ12</doc:organization>
+                  <doc:organization>Q00MDZ37</doc:organization>
                   <doc:program>TM11</doc:program>
                   <doc:transactionAmount>41337.28</doc:transactionAmount>
                   <doc:transactionType>01</doc:transactionType>
-                  <doc:userDimension2>A01</doc:userDimension2>
+                  <doc:userDimension2>A04</doc:userDimension2>
                   <doc:userDimension3></doc:userDimension3>
                </doc:MomentumAssetAcquisitionLine>
             </doc:MomentumAssetAcquisitionLineRelation>
-            <doc:assetNumber>1FVHG3DX3D78PO747</doc:assetNumber>
+            <doc:assetNumber>1FVHG3DX3D78P6747</doc:assetNumber>
             <doc:assetType>VEHICLE</doc:assetType>
             <doc:capitalizedIndicator>true</doc:capitalizedIndicator>
             <doc:depreciationMethod>SL</doc:depreciationMethod>
             <doc:description>FA Example</doc:description>
-            <doc:documentDate>2022-11-02</doc:documentDate>
-            <doc:documentNumber>F1202211024118</doc:documentNumber>
+            <doc:documentDate>2022-11-03</doc:documentDate>
+            <doc:documentNumber>F1202211034118</doc:documentNumber>
             <doc:documentType>F1</doc:documentType>
             <doc:externalSystemId>GSAFLTGOV</doc:externalSystemId>
             <doc:fuelCode>FUEL</doc:fuelCode>
-            <doc:initialServiceDate>2022-11-02</doc:initialServiceDate>
+            <doc:initialServiceDate>2022-11-03</doc:initialServiceDate>
             <doc:paymentUpdateAcquisitionCostFlag>false</doc:paymentUpdateAcquisitionCostFlag>
             <doc:quantity>1</doc:quantity>
             <doc:salvageValueAmount>4133.72</doc:salvageValueAmount>

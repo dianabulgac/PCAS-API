@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class ParallelTesting {
     @BeforeAll
     public static void before(){
-        System.setProperty("karate.env","dev");
+        System.setProperty("karate.env","qa");
     }
 
 
@@ -27,7 +27,7 @@ public class ParallelTesting {
                 .path("classpath:gov/gsafleet/feature/acquisitions").tags("@create")
 
                 .outputCucumberJson(true)
-                .karateEnv("dev")
+
                 .parallel(5);
         generateReport(results.getReportDir());
         assertEquals(0,results.getFailCount());
@@ -42,5 +42,17 @@ public class ParallelTesting {
         ReportBuilder reportBuilder = new ReportBuilder(jsonPaths, config);
         reportBuilder.generateReports();
     }
+    @Test
+    public void testParallelTransfer() {
+        Results results = Runner
+                .path("classpath:gov/gsafleet/feature/transfer").tags("@create")
+
+                .outputCucumberJson(true)
+
+                .parallel(5);
+        generateReport(results.getReportDir());
+        assertEquals(0,results.getFailCount());
+    }
+
 
 }
